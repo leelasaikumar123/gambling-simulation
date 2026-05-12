@@ -4,6 +4,8 @@ public class GamblingSimulation{
     public static Random random=new Random();
     public static void main(String[] args) {
         
+        List<List<Integer>> luckyDay=new ArrayList<>();
+        List<List<Integer>> unluckyDay=new ArrayList<>();
         List<List<Integer>> list=new ArrayList<>();
         int totalStakeInAMonth=20*100;
         int monthlyEarnings=0;
@@ -15,12 +17,14 @@ public class GamblingSimulation{
             list1.add(i);
             list1.add(-50);
             list.add(list1);
+         unluckyDay.add(list1);
             }
             else{
              List<Integer> list1=new ArrayList<>();
             list1.add(i);
             list1.add(50);
             list.add(list1);
+            luckyDay.add(list1);
             }
         }
         if((monthlyEarnings-totalStakeInAMonth)<0){
@@ -34,8 +38,12 @@ public class GamblingSimulation{
         }
     
     System.out.println(list);
-}
-    public static int profitOrLossInADay(){
+    System.out.println("Luckiest Day");
+    System.out.println(luckyDay);
+    System.out.println("UnLucky Day");
+    System.out.println(unluckyDay);
+    }
+   public static int profitOrLossInADay(){
         int stake=100;
         int bet=1;
        
