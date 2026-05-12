@@ -42,6 +42,12 @@ public class GamblingSimulation{
     System.out.println(luckyDay);
     System.out.println("UnLucky Day");
     System.out.println(unluckyDay);
+    if(monthlyEarnings-totalStakeInAMonth>0){
+        System.out.println("The Gambler Will Continue Next Month Also");
+    }
+    else{
+        System.out.println("He wont continue next month because he doest earn any profit");
+    }
     }
    public static int profitOrLossInADay(){
         int stake=100;
