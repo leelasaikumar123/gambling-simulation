@@ -3,7 +3,17 @@ import java.util.Random;
 public class GamblingSimulation{
     public static Random random=new Random();
     public static void main(String[] args) {
-        System.out.println(profitOrLossInADay());
+        int totalStakeInAMonth=20*100;
+        int monthlyEarnings=0;
+        for(int i=0;i<20;i++){
+            monthlyEarnings=monthlyEarnings+profitOrLossInADay();
+        }
+        if((monthlyEarnings-totalStakeInAMonth)<0){
+            System.out.println("He lost : "+(totalStakeInAMonth-monthlyEarnings));
+        }
+        else{
+            System.out.println("He Won : "+(monthlyEarnings-totalStakeInAMonth));
+        }
     }
     public static int profitOrLossInADay(){
         int stake=100;
