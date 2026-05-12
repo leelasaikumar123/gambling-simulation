@@ -1,25 +1,46 @@
-import java.util.Random;
+import java.util.*;
 
 public class GamblingSimulation{
     public static Random random=new Random();
     public static void main(String[] args) {
+        
+        List<List<Integer>> list=new ArrayList<>();
         int totalStakeInAMonth=20*100;
         int monthlyEarnings=0;
-        for(int i=0;i<20;i++){
-            monthlyEarnings=monthlyEarnings+profitOrLossInADay();
+        for(int i=1;i<=20;i++){
+            int dayEarnings=profitOrLossInADay();
+            monthlyEarnings=monthlyEarnings+dayEarnings;
+            if(dayEarnings==50){
+            List<Integer> list1=new ArrayList<>();
+            list1.add(i);
+            list1.add(-50);
+            list.add(list1);
+            }
+            else{
+             List<Integer> list1=new ArrayList<>();
+            list1.add(i);
+            list1.add(50);
+            list.add(list1);
+            }
         }
         if((monthlyEarnings-totalStakeInAMonth)<0){
             System.out.println("He lost : "+(totalStakeInAMonth-monthlyEarnings));
+  
+            
         }
         else{
             System.out.println("He Won : "+(monthlyEarnings-totalStakeInAMonth));
+
         }
-    }
+    
+    System.out.println(list);
+}
     public static int profitOrLossInADay(){
         int stake=100;
         int bet=1;
-        int outcome=random.nextInt(2);
+       
 while(stake != 50 && stake != 150){
+     int outcome=random.nextInt(2);
       if(outcome==0){
     stake--;
   }
